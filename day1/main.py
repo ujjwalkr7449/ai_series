@@ -22,3 +22,12 @@ message={
     "role": role,
     "content": prompt
 }
+messages=[message_system, message]
+# Temperature by default is 0 meaning safe. range is [0,2]
+response=client.chat.completions.create(model=model, messages=messages, temperature=0)
+# print(response)
+
+print("#######################################")
+
+answer=response.choices[0].message.content
+print(answer)
