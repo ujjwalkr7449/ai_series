@@ -56,3 +56,14 @@ response=client.chat.completions.create(model=model, messages=messages, response
 answer=response.choices[0].message.content
 print(answer)
 
+import json
+raw_json=answer
+data_file=json.loads(raw_json)
+ticket=Ticket(**data_file)
+
+
+# inko pass kr sakte hai aage!
+print(ticket.name)
+print(ticket.email)
+print(ticket.issue)
+
