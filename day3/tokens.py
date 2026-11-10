@@ -18,3 +18,12 @@ prompt2 = "Explain time travel in Detail but under 100 words"
 prompt3 = "Write a 1000 word essay on Machine learning"
 
 prompts=[prompt1,prompt2,prompt3]
+for prompt in prompts:
+    message={
+    "role": role,
+    "content": prompt
+    }
+    messages=[message]
+    response=client.chat.completions.create(model=model, messages=messages, max_tokens=5000)
+    usage=response.usage
+    print(f"Prompt: {prompt} -->your tokens: {usage.prompt_tokens} completion_tokens: {usage.completion_tokens} total tokens: {usage.total_tokens}  Finish Reason: {response.choices[0].finish_reason}")
