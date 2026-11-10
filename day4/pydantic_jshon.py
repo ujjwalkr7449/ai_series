@@ -13,3 +13,11 @@ client=Groq(api_key=my_api_key)
 
 model="llama-3.3-70b-versatile"
 role="user"
+# structure it
+from pydantic import BaseModel
+class Ticket(BaseModel):
+    name:str
+    email:str
+    issue:str
+
+schema=Ticket.model_json_schema()
