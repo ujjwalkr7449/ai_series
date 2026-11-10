@@ -12,3 +12,9 @@ client=Groq(api_key=my_api_key)
 
 model="llama-3.3-70b-versatile"
 role="user"
+
+prompt1 = "Hi!"
+prompt2 = "Explain time travel in Detail but under 100 words"
+prompt3 = "Write a 1000 word essay on Machine learning"
+
+prompts=[prompt1,prompt2,prompt3]
