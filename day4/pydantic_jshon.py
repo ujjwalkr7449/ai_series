@@ -41,3 +41,18 @@ prompt=f"""
 This is a customer ticket. Please extract the personal information from this.
 {text}
 """
+
+# message me role and content
+message={
+    "role": role,
+    "content": prompt
+}
+
+messages=[message_system,message]
+
+response=client.chat.completions.create(model=model, messages=messages, response_format=response_format)
+
+
+answer=response.choices[0].message.content
+print(answer)
+
