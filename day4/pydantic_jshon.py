@@ -21,3 +21,23 @@ class Ticket(BaseModel):
     issue:str
 
 schema=Ticket.model_json_schema()
+
+response_format={
+    "type": "json_object"
+}
+
+system_prompt=f"""
+Extract the personal information from the ticket strictly based on this schema and give a json output.
+{schema}
+"""
+
+message_system={
+    "role": "system",
+    "content": system_prompt
+}
+
+text="Hello My name is Pratyush. Yesterday I broke up with my girlfriend sheetal I have an iphone which is not working at all. My address is delhi. My email is abc@gmail.com. My contact number is 82134"
+prompt=f"""
+This is a customer ticket. Please extract the personal information from this.
+{text}
+"""
