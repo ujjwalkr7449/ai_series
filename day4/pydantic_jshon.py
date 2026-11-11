@@ -55,7 +55,7 @@ response=client.chat.completions.create(model=model, messages=messages, response
 
 answer=response.choices[0].message.content
 print(answer)
-
+# isko padhte kaise hai
 import json
 raw_json=answer
 data_file=json.loads(raw_json)
