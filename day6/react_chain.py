@@ -27,3 +27,7 @@ def calculator(expression):
         return eval(expression)
     except:
         return "calc error!"
+tools = {
+    "get_product_price": get_product_price,
+    "calculator": calculator
+}
