@@ -13,3 +13,17 @@ if not my_api_key:
 
 client=Groq(api_key=my_api_key)
 model="llama-3.3-70b-versatile"
+
+def get_product_price(product):
+    if product == 'iPhone 17':
+        return 1000
+    elif product == "iPhone 15":
+        return 500
+    else:
+        return 0
+    
+def calculator(expression):
+    try:
+        return eval(expression)
+    except:
+        return "calc error!"
