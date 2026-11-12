@@ -154,3 +154,8 @@ def run_agent(question):
                     + str(observation)
             })
             sleep(5)
+prompt="""
+I have 5000 rupees. What is the price of an iphone 17?
+and how much money will I have left?
+"""
+run_agent(prompt)
