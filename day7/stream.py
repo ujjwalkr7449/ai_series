@@ -22,3 +22,10 @@ messages=[message]
 # # print(response1)
 # answer=response1.choices[0].message.content
 # print(answer)
+
+stream=client.chat.completions.create(model=model, messages=messages,stream=True)
+
+for chunk in stream:
+    content = chunk.choices[0].delta.content
+    if content:
+       print(content, end="", flush=True)
