@@ -10,3 +10,15 @@ if not my_api_key:
     raise ValueError("API key kaha hai bhai")
 
 client=Groq(api_key=my_api_key)
+
+model="llama-3.3-70b-versatile"
+prompt = "Explain how internet works."
+message={
+    "role" : "user",
+    "content" : prompt
+}
+messages=[message]
+# response1=client.chat.completions.create(model=model, messages=messages)
+# # print(response1)
+# answer=response1.choices[0].message.content
+# print(answer)
