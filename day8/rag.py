@@ -17,3 +17,12 @@ knowledge_base={
     "age" : " The age of pratyush is 25 years",
     "net worth" : "The net worth of pratyush is 2000"
 }
+# step 2 retreieval
+def retrieve_info(question):
+    question=question.lower()
+    if "age" in question:
+        return knowledge_base["age"]
+    elif "net worth" in question:
+        return knowledge_base["net worth"]
+    else:
+        return None
