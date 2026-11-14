@@ -43,3 +43,5 @@ def ask_llm(question):
     response=client.chat.completions.create(model=model, messages=messages)
     answer=response.choices[0].message.content
     return answer
+question="what is pratyush's agge?"
+print(ask_llm(question))
