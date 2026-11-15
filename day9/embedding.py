@@ -12,3 +12,6 @@ def cosine_similarity(a, b):
 
 model = SentenceTransformer("all-MiniLM-L6-v2") #384
 text = "Machine learning is fun."
+# embedding=model.encode(text)
+# print(embedding.shape)
+# print(embedding[:10])
