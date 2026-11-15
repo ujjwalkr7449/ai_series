@@ -15,3 +15,9 @@ text = "Machine learning is fun."
 # embedding=model.encode(text)
 # print(embedding.shape)
 # print(embedding[:10])
+t1="There are 24 paid leaves"
+t2="cat is a wild animal"
+
+v1=model.encode(t1)
+v2=model.encode(t2)
+print(cosine_similarity(v1, v2))
