@@ -59,3 +59,8 @@ def ask_llm(question,context):
     response=client.chat.completions.create(model=groqmodel, messages=messages)
     answer=response.choices[0].message.content
     return answer
+query = "How much vacation do I get?"
+qembedding=model.encode(query)
+score,context=retrieve(qembedding)
+answer=ask_llm(query,context)
+print(answer)
