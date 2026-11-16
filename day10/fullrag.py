@@ -42,3 +42,20 @@ def retrieve(qembedding):
         scores.append((score,documents[i]))
     scores.sort(reverse=True)
     return scores[0]  #line#0.9
+
+def ask_llm(question,context):
+
+    sys_prompt=f"""answer in one line only. Answer only based on this context. do not hallucinate. Context: {context}"""
+    system_message={
+        "role": "system",
+        "content": sys_prompt
+
+    }
+    message={
+        "role": "user",
+        "content": question
+    }
+    messages=[system_message, message]
+    response=client.chat.completions.create(model=groqmodel, messages=messages)
+    answer=response.choices[0].message.content
+    return answer
