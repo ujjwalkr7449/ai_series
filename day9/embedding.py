@@ -20,4 +20,4 @@ t2="cat is a wild animal"
 
 v1=model.encode(t1)
 v2=model.encode(t2)
-print(cosine_similarity(v1, v2))
+print(cosine_similarity(v1, v2)) 
