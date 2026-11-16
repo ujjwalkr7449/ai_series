@@ -35,3 +35,10 @@ def cosine_similarity(a, b):
     return np.dot(a, b) / (
         np.linalg.norm(a) * np.linalg.norm(b)
     )
+def retrieve(qembedding):
+    scores = []  # 0.4 
+    for i, document in  enumerate(document_embeddings):
+        score=cosine_similarity(qembedding,document )
+        scores.append((score,documents[i]))
+    scores.sort(reverse=True)
+    return scores[0]  #line#0.9
