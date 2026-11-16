@@ -27,3 +27,11 @@ documents = [
    
     "Employees have a 90 day notice period."
 ]
+document_embeddings = model.encode(documents)
+
+print(sys.getsizeof(document_embeddings))
+
+def cosine_similarity(a, b):
+    return np.dot(a, b) / (
+        np.linalg.norm(a) * np.linalg.norm(b)
+    )
