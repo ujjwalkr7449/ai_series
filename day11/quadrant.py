@@ -13,3 +13,13 @@ load_dotenv()
 QDRANT_URL = os.getenv("QDRANT_URL")
 QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+# ============================================================
+# PART 2 — CONNECT TO QDRANT
+# ============================================================
+
+client = QdrantClient(
+    url=QDRANT_URL,
+    api_key=QDRANT_API_KEY
+)
+
+print("Connected to Qdrant Cloud!")
