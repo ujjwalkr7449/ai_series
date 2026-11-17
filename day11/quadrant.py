@@ -205,3 +205,14 @@ If the answer is not present in the context, say:
     )
 
     return response.choices[0].message.content
+
+
+
+
+# ============================================================
+# PART 12 — COMPLETE RAG PIPELINE
+# ============================================================
+
+question = "How many vacation days do I get?"
+
+results = search(question, top_k=3)
