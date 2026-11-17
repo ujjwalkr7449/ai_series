@@ -174,3 +174,34 @@ for result in results:
 groq_client = Groq(
     api_key=GROQ_API_KEY
 )
+
+# ============================================================
+# PART 11 — ASK THE LLM
+# ============================================================
+
+def ask_llm(question, context):
+
+    prompt = f"""
+Answer the question using only the information provided below.
+
+Context:
+{context}
+
+Question:
+{question}
+
+If the answer is not present in the context, say:
+"I don't know based on the provided information."
+"""
+
+    response = groq_client.chat.completions.create(
+        model="openai/gpt-oss-120b",
+        messages=[
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
+    )
+
+    return response.choices[0].message.content
