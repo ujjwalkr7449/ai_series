@@ -216,3 +216,17 @@ If the answer is not present in the context, say:
 question = "How many vacation days do I get?"
 
 results = search(question, top_k=3)
+
+
+# Extract text from the search results
+context = "\n".join(
+    result.payload["text"]
+    for result in results
+)
+
+
+answer = ask_llm(question, context)
+
+
+print("\nFinal Answer:")
+print(answer)
