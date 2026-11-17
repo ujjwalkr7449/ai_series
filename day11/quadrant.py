@@ -55,3 +55,10 @@ client.create_payload_index(
     field_name="category",
     field_schema=PayloadSchemaType.KEYWORD,
 )
+# ============================================================
+# PART 4 — LOAD OUR KNOWLEDGE
+# ============================================================
+
+with open("knowledge.json", "r", encoding="utf-8") as f:
+    documents = json.load(f)
+
