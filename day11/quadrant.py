@@ -104,3 +104,48 @@ client.upsert( #upload+insert
 )
 
 print(f"Uploaded {len(points)} documents to Qdrant!")
+
+# ============================================================
+# PART 8 — SEARCH QDRANT
+# ============================================================
+
+def search(query, top_k=3):
+
+    # Convert the question into an embedding
+    query_vector = model.encode(query).tolist()
+
+    # Search Qdrant for similar vectors
+    results = client.query_points(
+        collection_name=COLLECTION_NAME,
+        query=query_vector,
+        limit=top_k,
+        with_payload=True,
+    ).points
+
+    return results
+
+def search_with_filter(query, query_filter=None, top_k=3):
+
+
+    query_vector = model.encode(query).tolist()
+
+
+    results = client.query_points(
+        collection_name=COLLECTION_NAME,
+        query=query_vector,
+        limit=top_k,
+        with_payload=True,
+        query_filter=query_filter,
+    ).points
+
+
+    return results
+
+reimbursement_filter = Filter(
+    must=[
+        FieldCondition(
+            key="category",
+            match=MatchValue(value="reimbursement")
+        )
+    ]
+)
