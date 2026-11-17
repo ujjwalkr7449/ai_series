@@ -23,3 +23,35 @@ client = QdrantClient(
 )
 
 print("Connected to Qdrant Cloud!")
+
+# ============================================================
+# PART 3 — CREATE QDRANT COLLECTION
+# ============================================================
+
+COLLECTION_NAME = "knowledge_filter"
+EMBEDDING_SIZE = 384
+
+
+# Delete collection if it already exists
+if client.collection_exists(COLLECTION_NAME):
+    print(f"Deleting existing collection: {COLLECTION_NAME}")
+    client.delete_collection(COLLECTION_NAME)
+
+
+# Create collection
+client.create_collection(
+    collection_name=COLLECTION_NAME,
+    vectors_config=VectorParams(
+        size=EMBEDDING_SIZE,
+        distance=Distance.COSINE,
+    ),
+)
+
+print(f"Created collection: {COLLECTION_NAME}")
+print(f"Vector size: {EMBEDDING_SIZE}")
+print("Distance: COSINE")
+client.create_payload_index(
+    collection_name=COLLECTION_NAME,
+    field_name="category",
+    field_schema=PayloadSchemaType.KEYWORD,
+)
