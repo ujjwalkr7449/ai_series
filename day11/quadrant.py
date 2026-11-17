@@ -165,3 +165,12 @@ for result in results:
     print(f"Score: {result.score:.3f}")
     print(result.payload["text"])
     print()
+    
+
+# ============================================================
+# PART 10 — CONNECT TO GROQ
+# ============================================================
+
+groq_client = Groq(
+    api_key=GROQ_API_KEY
+)
