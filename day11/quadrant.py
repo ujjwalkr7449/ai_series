@@ -149,3 +149,19 @@ reimbursement_filter = Filter(
         )
     ]
 )
+
+
+# ============================================================
+# PART 9 — TEST SEARCH
+# ============================================================
+
+query = "How many vacation days do I get?"
+
+results = search_with_filter(query, reimbursement_filter,top_k=3)
+
+print("\nSearch results:")
+
+for result in results:
+    print(f"Score: {result.score:.3f}")
+    print(result.payload["text"])
+    print()
