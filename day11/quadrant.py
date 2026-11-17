@@ -79,3 +79,18 @@ embeddings = model.encode(texts)
 print(f"Generated {len(embeddings)} embeddings")
 print(f"Embedding size: {len(embeddings[0])}")
 
+# ============================================================
+# PART 6 — CREATE QDRANT POINTS
+# ============================================================
+
+points = []
+
+for i in range(len(documents)):
+    
+    point = PointStruct(
+        id=i + 1,
+        vector=embeddings[i].tolist(),
+        payload=documents[i]
+    )
+
+    points.append(point)
