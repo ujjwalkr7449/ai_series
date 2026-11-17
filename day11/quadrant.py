@@ -94,3 +94,13 @@ for i in range(len(documents)):
     )
 
     points.append(point)
+# ============================================================
+# PART 7 — UPLOAD TO QDRANT
+# ============================================================
+
+client.upsert( #upload+insert
+    collection_name=COLLECTION_NAME,
+    points=points
+)
+
+print(f"Uploaded {len(points)} documents to Qdrant!")
