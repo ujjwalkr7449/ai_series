@@ -77,3 +77,15 @@ client.create_collection(
 print(
     f"Created collection: {COLLECTION_NAME}"
 )
+# ============================================================
+# PART 5 — CREATE CATEGORY INDEX
+# ============================================================
+
+client.create_payload_index(
+
+    collection_name=COLLECTION_NAME,
+
+    field_name="category",
+
+    field_schema=PayloadSchemaType.KEYWORD
+)
