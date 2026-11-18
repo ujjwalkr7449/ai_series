@@ -40,3 +40,40 @@ client = QdrantClient(
 )
 
 print("Connected to Qdrant Cloud!")
+
+
+# ============================================================
+# PART 4 — CREATE QDRANT COLLECTION
+# ============================================================
+
+COLLECTION_NAME = "rag_eval"
+EMBEDDING_SIZE = 384
+
+
+if client.collection_exists(COLLECTION_NAME):
+
+    print(
+        f"Deleting existing collection: {COLLECTION_NAME}"
+    )
+
+    client.delete_collection(
+        COLLECTION_NAME
+    )
+
+
+client.create_collection(
+
+    collection_name=COLLECTION_NAME,
+
+    vectors_config=VectorParams(
+
+        size=EMBEDDING_SIZE,
+
+        distance=Distance.COSINE
+    )
+)
+
+
+print(
+    f"Created collection: {COLLECTION_NAME}"
+)
